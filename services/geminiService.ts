@@ -1,3 +1,4 @@
+
 import { GoogleGenAI } from "@google/genai";
 import { PitchTone, PitchLength, OutputLanguage } from "../types";
 
@@ -123,6 +124,9 @@ export const analyzeBusinessImage = async (
           imagePart,
           { text: prompt }
         ]
+      },
+      config: {
+        maxOutputTokens: 700
       }
     });
 
@@ -179,6 +183,7 @@ export const searchBusinessLeads = async (
       contents: prompt,
       config: {
         tools: [{ googleMaps: {} }],
+        maxOutputTokens: 700
       }
     });
 
@@ -238,7 +243,10 @@ export const analyzeBusinessGap = async (
       contents: prompt,
       config: {
         // Thinking budget to allow for deeper analysis of the business logic
-        thinkingConfig: { thinkingBudget: 1024 } 
+        thinkingConfig: { thinkingBudget: 1024 },
+        // The effective token limit for the response is `maxOutputTokens` minus the `thinkingBudget`.
+        // We want ~700 tokens for the final output, so we set maxOutputTokens to 1024 + 700 = 1724.
+        maxOutputTokens: 1724
       }
     });
 

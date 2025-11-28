@@ -230,18 +230,15 @@ const AnalysisResult: React.FC<AnalysisResultProps> = ({ result, groundingMetada
           <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-600/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
           
           <div className="flex flex-col items-center relative z-10">
-             {/* Main clickable CTA Header */}
+             {/* Main clickable CTA Header - Arrow removed */}
             <a 
               href="#" 
               onClick={(e) => {
                 e.preventDefault();
                 handleWhatsAppShare('351912281028'); 
               }}
-              className="w-full flex items-center justify-center gap-4 mb-8 transition-transform active:scale-[0.99] cursor-pointer group/link"
+              className="w-full flex items-center justify-center mb-8 transition-transform active:scale-[0.99] cursor-pointer group/link"
             >
-              <div className="flex-shrink-0 bg-slate-600 p-2.5 rounded-lg shadow-md group-hover/link:bg-slate-500 transition-colors">
-                 <ArrowRight className="w-6 h-6 text-white" />
-              </div>
               <h3 className="text-lg sm:text-xl font-bold text-white leading-snug text-center group-hover/link:text-indigo-100 transition-colors">
                 {text}
               </h3>
@@ -352,7 +349,7 @@ const AnalysisResult: React.FC<AnalysisResultProps> = ({ result, groundingMetada
       <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50">
         <div className="flex items-center gap-2">
           <Sparkles className="w-5 h-5 text-indigo-600" aria-hidden="true" />
-          <h2 className="font-semibold text-slate-800">Gemini Insights</h2>
+          <h2 className="font-semibold text-slate-800">Insights</h2>
         </div>
         
         <div className="flex items-center gap-2 relative">
@@ -425,7 +422,7 @@ const AnalysisResult: React.FC<AnalysisResultProps> = ({ result, groundingMetada
       </div>
       
       <div className="flex-1 p-6 overflow-y-auto" aria-live="polite">
-        <article className="prose prose-slate prose-headings:text-slate-800 prose-a:text-indigo-600 max-w-none">
+        <article className="prose prose-slate prose-headings:text-slate-800 prose-a:text-indigo-600 max-w-none prose-p:my-6 prose-p:leading-relaxed">
           <ReactMarkdown>{result}</ReactMarkdown>
         </article>
         {renderGroundingChunks()}
