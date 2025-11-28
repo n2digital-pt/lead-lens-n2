@@ -1,0 +1,9 @@
+{
+  "name": "LeadLens AI",
+  "description": "Analyze business images (storefronts, cards, flyers) to generate website and automation sales pitches using Gemini 1.5 Pro.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation",
+    "microphone"
+  ]
+}
